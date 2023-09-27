@@ -74,11 +74,8 @@
       }
     },
     {
-      "id": 11,
-      "title": "produt11",
-      "category": "gardening",
-      "price": 7000,
-      "description": "Esta es una descripción del producto 11"
+      "price": 5000,
+      "id": 12
     }
   ],
   "reviews": [

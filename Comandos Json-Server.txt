@@ -858,6 +858,77 @@ http://localhost:3000/products/1?_embed=reviews
 
 
 
+Agregar un producto
+-------------------
+Post http://[::1]:3000/products
+
+Body
+Json Content
+{
+  "id":12,
+  "title": "produt12",
+  "category": "gardening",
+  "price": 9000,
+  "description": "Esta es una descripción del producto 12"  
+}
+
+
+Actualizar un producto
+---------------------
+Put http://[::1]:3000/products/12
+
+Body
+Json Content
+{
+  "id":12,
+  "title": "produt12",
+  "category": "furniture",
+  "price": 9000,
+  "description": "Esta es una descripción del producto 12"  
+}
+
+Respuesta
+---------
+{
+  "id": 12,
+  "title": "produt12",
+  "category": "furniture",
+  "price": 9000,
+  "description": "Esta es una descripción del producto 12"
+}
+
+
+Solo actualizar la propiedad de un objeto: si queremos cambiar el precio de 9000 a 5000
+------------------------------------------
+Patch http://[::1]:3000/products/12
+
+Body
+Json Content
+{
+  "id":12,
+  "title": "produt12",
+  "category": "furniture",
+  "price": 9000,
+  "description": "Esta es una descripción del producto 12"  
+}
+
+Body
+Json Content
+{
+  "price": 5000,
+   
+}
+
+Respuesta
+---------
+Body
+Json Content
+{
+  "price": 5000,
+  "id": 12
+}
+
+
 ---------------------------------------------------------------
 Rechaza la conexion
 http://localhost:3000/products
