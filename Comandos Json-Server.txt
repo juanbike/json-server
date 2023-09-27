@@ -1,0 +1,877 @@
+npm init
+apipagos>yarn add json-server
+
+apipagos>packect.json
+{
+  "name": "apipagos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-json": "json-server --watch db.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}
+
+Iniciar json-server
+-------------------
+
+apipagos>yarn server-json
+
+
+Comandos JSON-Server
+--------------------
+
+Listar los items
+-----------------
+localhost:3000/products
+localhost:3000/reviews
+
+Listar un item
+--------------
+localhost:3000/products/1
+{
+  "id": 1,
+  "title": "produt1",
+  "category": "electronics",
+  "price": 4000,
+  "description": "Esta es una descripción del producto 1"
+}
+
+localhost:3000/reviews/3
+{
+  "id": 3,
+  "rating": 4,
+  "comment": "Review 3 for product id 1",
+  "productId": 1
+}
+
+
+Filtar datos por categoria
+--------------------------
+http://localhost:3000/products?category=electronics
+
+[
+  {
+    "identificación": 1,
+    "título": "producto1",
+    "categoría": "electrónica",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 1"
+  },
+  {
+    "identificación": 2,
+    "título": "producto2",
+    "categoría": "electrónica",
+    "precio": 2000,
+    "description": "Esta es una descripción del producto 2"
+  }
+]
+
+GET /products?category=electronics&discount.type=shipping
+
+[
+{
+          "id":10,
+           "title": "produt10",
+           "category": "accesories",
+           "price": 3000,
+           "description": "Esta es una descripción del producto 10" ,
+           "discount": {
+            "type": "shipping"
+}
+]
+
+
+Ordenar las producos de mayor a menor o viceversa
+-------------------------------------------------
+localhost:3000/products?_sort=price  // de mayor a menor
+[
+  {
+    "identificación": 3,
+    "título": "producto3",
+    "categoría": "libros",
+    "precio": 1000,
+    "description": "Esta es una descripción del producto 3"
+  },
+  {
+    "identificación": 2,
+    "título": "producto2",
+    "categoría": "electrónica",
+    "precio": 2000,
+    "description": "Esta es una descripción del producto 2"
+  },
+  {
+    "identificación": 4,
+    "título": "producto4",
+    "categoría": "fitness",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 4"
+  },
+  {
+    "identificación": 10,
+    "título": "producto10",
+    "categoría": "accesorios",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "descuento": {
+      "tipo": "envío"
+    }
+  },
+  {
+    "identificación": 1,
+    "título": "producto1",
+    "categoría": "electrónica",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 1"
+  },
+  {
+    "identificación": 5,
+    "título": "producto5",
+    "categoría": "fitness",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 5"
+  },
+  {
+    "identificación": 6,
+    "título": "producto4",
+    "categoría": "jardinería",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "identificación": 9,
+    "título": "producto9",
+    "categoría": "accesorios",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 9"
+  },
+  {
+    "identificación": 7,
+    "título": "producto7",
+    "categoría": "muebles",
+    "precio": 7000,
+    "description": "Esta es una descripción del producto 7"
+  },
+  {
+    "identificación": 8,
+    "título": "producto8",
+    "categoría": "jardinería",
+    "precio": 7000,
+    "description": "Esta es una descripción del producto 8"
+  }
+]
+
+
+http://localhost:3000/products?_sort=price&_order=desc
+[
+  {
+    "id": 7,
+    "title": "produt7",
+    "category": "furniture",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 7"
+  },
+  {
+    "id": 8,
+    "title": "produt8",
+    "category": "gardening",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 8"
+  },
+  {
+    "id": 6,
+    "title": "produt4",
+    "category": "gardening",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "id": 9,
+    "title": "produt9",
+    "category": "accesories",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 9"
+  },
+  {
+    "id": 1,
+    "title": "produt1",
+    "category": "electronics",
+    "price": 4000,
+    "description": "Esta es una descripción del producto 1"
+  },
+  {
+    "id": 5,
+    "title": "produt5",
+    "category": "fitness",
+    "price": 4000,
+    "description": "Esta es una descripción del producto 5"
+  },
+  {
+    "id": 4,
+    "title": "produt4",
+    "category": "fitness",
+    "price": 3000,
+    "description": "Esta es una descripción del producto 4"
+  },
+  {
+    "id": 10,
+    "title": "produt10",
+    "category": "accesories",
+    "price": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "discount": {
+      "type": "shipping"
+    }
+  },
+  {
+    "id": 2,
+    "title": "produt2",
+    "category": "electronics",
+    "price": 2000,
+    "description": "Esta es una descripción del producto 2"
+  },
+  {
+    "id": 3,
+    "title": "produt3",
+    "category": "books",
+    "price": 1000,
+    "description": "Esta es una descripción del producto 3"
+  }
+]
+
+
+Ordenar por precio y categoria
+------------------------------
+http://localhost:3000/products?_sort=price&category_order=desc,asc
+
+[
+  {
+    "identificación": 3,
+    "título": "producto3",
+    "categoría": "libros",
+    "precio": 1000,
+    "description": "Esta es una descripción del producto 3"
+  },
+  {
+    "identificación": 2,
+    "título": "producto2",
+    "categoría": "electrónica",
+    "precio": 2000,
+    "description": "Esta es una descripción del producto 2"
+  },
+  {
+    "identificación": 4,
+    "título": "producto4",
+    "categoría": "fitness",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 4"
+  },
+  {
+    "identificación": 10,
+    "título": "producto10",
+    "categoría": "accesorios",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "descuento": {
+      "tipo": "envío"
+    }
+  },
+  {
+    "identificación": 1,
+    "título": "producto1",
+    "categoría": "electrónica",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 1"
+  },
+  {
+    "identificación": 5,
+    "título": "producto5",
+    "categoría": "fitness",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 5"
+  },
+  {
+    "identificación": 6,
+    "título": "producto4",
+    "categoría": "jardinería",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "identificación": 9,
+    "título": "producto9",
+    "categoría": "accesorios",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 9"
+  },
+  {
+    "identificación": 7,
+    "título": "producto7",
+    "categoría": "muebles",
+    "precio": 7000,
+    "description": "Esta es una descripción del producto 7"
+  },
+  {
+    "identificación": 8,
+    "título": "producto8",
+    "categoría": "jardinería",
+    "precio": 7000,
+    "description": "Esta es una descripción del producto 8"
+  }
+]
+
+
+Paginación
+----------
+La paginación por defecto muestra 10 productos por página
+
+http://localhost:3000/products?_page=1
+
+[
+  {
+    "id": 1,
+    "title": "produt1",
+    "category": "electronics",
+    "price": 4000,
+    "description": "Esta es una descripción del producto 1"
+  },
+  {
+    "id": 2,
+    "title": "produt2",
+    "category": "electronics",
+    "price": 2000,
+    "description": "Esta es una descripción del producto 2"
+  },
+  {
+    "id": 3,
+    "title": "produt3",
+    "category": "books",
+    "price": 1000,
+    "description": "Esta es una descripción del producto 3"
+  },
+  {
+    "id": 4,
+    "title": "produt4",
+    "category": "fitness",
+    "price": 3000,
+    "description": "Esta es una descripción del producto 4"
+  },
+  {
+    "id": 5,
+    "title": "produt5",
+    "category": "fitness",
+    "price": 4000,
+    "description": "Esta es una descripción del producto 5"
+  },
+  {
+    "id": 6,
+    "title": "produt4",
+    "category": "gardening",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "id": 7,
+    "title": "produt7",
+    "category": "furniture",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 7"
+  },
+  {
+    "id": 8,
+    "title": "produt8",
+    "category": "gardening",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 8"
+  },
+  {
+    "id": 9,
+    "title": "produt9",
+    "category": "accesories",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 9"
+  },
+  {
+    "id": 10,
+    "title": "produt10",
+    "category": "accesories",
+    "price": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "discount": {
+      "type": "shipping"
+    }
+  }
+]
+
+Si page=2 mostrará mostrara los siguientes 10 productos
+
+
+
+Limitar el tamaño de las páginas
+-------------------------------
+
+localhost:3000/products?_page=1&_limit=2
+
+[
+  {
+    "identificación": 1,
+    "título": "producto1",
+    "categoría": "electrónica",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 1"
+  },
+  {
+    "identificación": 2,
+    "título": "producto2",
+    "categoría": "electrónica",
+    "precio": 2000,
+    "description": "Esta es una descripción del producto 2"
+  }
+]
+
+
+
+Vemos los siguiente dos productos
+---------------------------------
+http://localhost:3000/products?_page=2&_limit=2
+
+[
+  {
+    "identificación": 3,
+    "título": "producto3",
+    "categoría": "libros",
+    "precio": 1000,
+    "description": "Esta es una descripción del producto 3"
+  },
+  {
+    "identificación": 4,
+    "título": "producto4",
+    "categoría": "fitness",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 4"
+  }
+]
+
+
+
+
+Operadores
+-----------
+
+Trabajar con rangos
+--------------------
+
+En un e-commerce un usuario puede establecer un rango de precios para visualizarlos: buscar los productos entre 2000  y 6000
+
+
+http://localhost:3000/products?price_gte=2000&price_lte=5000
+
+[
+  {
+    "identificación": 1,
+    "título": "producto1",
+    "categoría": "electrónica",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 1"
+  },
+  {
+    "identificación": 2,
+    "título": "producto2",
+    "categoría": "electrónica",
+    "precio": 2000,
+    "description": "Esta es una descripción del producto 2"
+  },
+  {
+    "identificación": 4,
+    "título": "producto4",
+    "categoría": "fitness",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 4"
+  },
+  {
+    "identificación": 5,
+    "título": "producto5",
+    "categoría": "fitness",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 5"
+  },
+  {
+    "identificación": 6,
+    "título": "producto4",
+    "categoría": "jardinería",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "identificación": 9,
+    "título": "producto9",
+    "categoría": "accesorios",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 9"
+  },
+  {
+    "identificación": 10,
+    "título": "producto10",
+    "categoría": "accesorios",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "descuento": {
+      "tipo": "envío"
+    }
+  }
+]
+
+
+Operador no igual
+-----------------
+Monstrar todos los productos que su id es distinto de 1
+http://localhost:3000/products?id_ne=1
+
+[
+  {
+    "identificación": 2,
+    "título": "producto2",
+    "categoría": "electrónica",
+    "precio": 2000,
+    "description": "Esta es una descripción del producto 2"
+  },
+  {
+    "identificación": 3,
+    "título": "producto3",
+    "categoría": "libros",
+    "precio": 1000,
+    "description": "Esta es una descripción del producto 3"
+  },
+  {
+    "identificación": 4,
+    "título": "producto4",
+    "categoría": "fitness",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 4"
+  },
+  {
+    "identificación": 5,
+    "título": "producto5",
+    "categoría": "fitness",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 5"
+  },
+  {
+    "identificación": 6,
+    "título": "producto4",
+    "categoría": "jardinería",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "identificación": 7,
+    "título": "producto7",
+    "categoría": "muebles",
+    "precio": 7000,
+    "description": "Esta es una descripción del producto 7"
+  },
+  {
+    "identificación": 8,
+    "título": "producto8",
+    "categoría": "jardinería",
+    "precio": 7000,
+    "description": "Esta es una descripción del producto 8"
+  },
+  {
+    "identificación": 9,
+    "título": "producto9",
+    "categoría": "accesorios",
+    "precio": 5000,
+    "description": "Esta es una descripción del producto 9"
+  },
+  {
+    "identificación": 10,
+    "título": "producto10",
+    "categoría": "accesorios",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "descuento": {
+      "tipo": "envío"
+    }
+  }
+]
+
+
+
+usar expresión regular: se utiliza para auto completar
+------------------------------------------------------
+
+http://localhost:3000/products?category_like=^f
+
+ Buscar la categoria que comiencen por f
+ ----------------------------------------
+
+[
+  {
+    "identificación": 4,
+    "título": "producto4",
+    "categoría": "fitness",
+    "precio": 3000,
+    "description": "Esta es una descripción del producto 4"
+  },
+  {
+    "identificación": 5,
+    "título": "producto5",
+    "categoría": "fitness",
+    "precio": 4000,
+    "description": "Esta es una descripción del producto 5"
+  },
+  {
+    "identificación": 7,
+    "título": "producto7",
+    "categoría": "muebles",
+    "precio": 7000,
+    "description": "Esta es una descripción del producto 7"
+  }
+]
+
+
+
+
+ Búsqueda de texto: Búsqueda de full texto
+ -----------------------------------------
+ 
+ http://localhost:3000/products?q=in
+ 
+ [
+  {
+    "id": 6,
+    "title": "produt4",
+    "category": "gardening",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "id": 8,
+    "title": "produt8",
+    "category": "gardening",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 8"
+  },
+  {
+    "id": 10,
+    "title": "produt10",
+    "category": "accesories",
+    "price": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "discount": {
+      "type": "shipping"
+    }
+  }
+]
+
+
+http://localhost:3000/products?q=gar
+
+[
+  {
+    "id": 6,
+    "title": "produt4",
+    "category": "gardening",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 6"
+  },
+  {
+    "id": 8,
+    "title": "produt8",
+    "category": "gardening",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 8"
+  }
+]
+
+
+ 
+Relaciones
+----------
+
+Buscar los productos cons sus reseñas: Las reseñas 1,2 y 3 estan asociadas con el producto 1. La reseña 4 con el producto 2 y la reseña 5 con el ID del producto 3
+
+
+http://localhost:3000/products?_embed=reviews
+
+[
+  {
+    "id": 1,
+    "title": "produt1",
+    "category": "electronics",
+    "price": 4000,
+    "description": "Esta es una descripción del producto 1",
+    "reviews": [
+      {
+        "id": 1,
+        "rating": 3,
+        "comment": "Review 1 for product id 1",
+        "productId": 1
+      },
+      {
+        "id": 2,
+        "rating": 4,
+        "comment": "Review 2 for product id 1",
+        "productId": 1
+      },
+      {
+        "id": 3,
+        "rating": 4,
+        "comment": "Review 3 for product id 1",
+        "productId": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "produt2",
+    "category": "electronics",
+    "price": 2000,
+    "description": "Esta es una descripción del producto 2",
+    "reviews": [
+      {
+        "id": 4,
+        "rating": 5,
+        "comment": "Review 1 for product id 2",
+        "productId": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "produt3",
+    "category": "books",
+    "price": 1000,
+    "description": "Esta es una descripción del producto 3",
+    "reviews": [
+      {
+        "id": 5,
+        "rating": 3,
+        "comment": "Review 1 for product id 3",
+        "productId": 3
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "produt4",
+    "category": "fitness",
+    "price": 3000,
+    "description": "Esta es una descripción del producto 4",
+    "reviews": []
+  },
+  {
+    "id": 5,
+    "title": "produt5",
+    "category": "fitness",
+    "price": 4000,
+    "description": "Esta es una descripción del producto 5",
+    "reviews": []
+  },
+  {
+    "id": 6,
+    "title": "produt4",
+    "category": "gardening",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 6",
+    "reviews": []
+  },
+  {
+    "id": 7,
+    "title": "produt7",
+    "category": "furniture",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 7",
+    "reviews": []
+  },
+  {
+    "id": 8,
+    "title": "produt8",
+    "category": "gardening",
+    "price": 7000,
+    "description": "Esta es una descripción del producto 8",
+    "reviews": []
+  },
+  {
+    "id": 9,
+    "title": "produt9",
+    "category": "accesories",
+    "price": 5000,
+    "description": "Esta es una descripción del producto 9",
+    "reviews": []
+  },
+  {
+    "id": 10,
+    "title": "produt10",
+    "category": "accesories",
+    "price": 3000,
+    "description": "Esta es una descripción del producto 10",
+    "discount": {
+      "type": "shipping"
+    },
+    "reviews": []
+  }
+]
+
+
+
+Mostrar el producto y sus reseñas
+---------------------------------
+
+
+http://localhost:3000/products/1?_embed=reviews
+
+{
+  "id": 1,
+  "title": "produt1",
+  "category": "electronics",
+  "price": 4000,
+  "description": "Esta es una descripción del producto 1",
+  "reviews": [
+    {
+      "id": 1,
+      "rating": 3,
+      "comment": "Review 1 for product id 1",
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "rating": 4,
+      "comment": "Review 2 for product id 1",
+      "productId": 1
+    },
+    {
+      "id": 3,
+      "rating": 4,
+      "comment": "Review 3 for product id 1",
+      "productId": 1
+    }
+  ]
+}
+
+
+
+---------------------------------------------------------------
+Rechaza la conexion
+http://localhost:3000/products
+
+
+Usando
+http://[::1]:3000/products
+
+FUNCIONA
+---------------------------------------------------------------
+
+https://stackoverflow.com/questions/70850519/why-do-i-get-connection-was-refused-by-the-server-when-using-thunder-client-on
+
+
+
+
+	

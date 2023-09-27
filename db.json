@@ -1,0 +1,116 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "produt1",
+      "category": "electronics",
+      "price": 4000,
+      "description": "Esta es una descripción del producto 1"
+    },
+    {
+      "id": 2,
+      "title": "produt2",
+      "category": "electronics",
+      "price": 2000,
+      "description": "Esta es una descripción del producto 2"
+    },
+    {
+      "id": 3,
+      "title": "produt3",
+      "category": "books",
+      "price": 1000,
+      "description": "Esta es una descripción del producto 3"
+    },
+    {
+      "id": 4,
+      "title": "produt4",
+      "category": "fitness",
+      "price": 3000,
+      "description": "Esta es una descripción del producto 4"
+    },
+    {
+      "id": 5,
+      "title": "produt5",
+      "category": "fitness",
+      "price": 4000,
+      "description": "Esta es una descripción del producto 5"
+    },
+    {
+      "id": 6,
+      "title": "produt4",
+      "category": "gardening",
+      "price": 5000,
+      "description": "Esta es una descripción del producto 6"
+    },
+    {
+      "id": 7,
+      "title": "produt7",
+      "category": "furniture",
+      "price": 7000,
+      "description": "Esta es una descripción del producto 7"
+    },
+    {
+      "id": 8,
+      "title": "produt8",
+      "category": "gardening",
+      "price": 7000,
+      "description": "Esta es una descripción del producto 8"
+    },
+    {
+      "id": 9,
+      "title": "produt9",
+      "category": "accesories",
+      "price": 5000,
+      "description": "Esta es una descripción del producto 9"
+    },
+    {
+      "id": 10,
+      "title": "produt10",
+      "category": "accesories",
+      "price": 3000,
+      "description": "Esta es una descripción del producto 10",
+      "discount": {
+        "type": "shipping"
+      }
+    },
+    {
+      "id": 11,
+      "title": "produt11",
+      "category": "gardening",
+      "price": 7000,
+      "description": "Esta es una descripción del producto 11"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "rating": 3,
+      "comment": "Review 1 for product id 1",
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "rating": 4,
+      "comment": "Review 2 for product id 1",
+      "productId": 1
+    },
+    {
+      "id": 3,
+      "rating": 4,
+      "comment": "Review 3 for product id 1",
+      "productId": 1
+    },
+    {
+      "id": 4,
+      "rating": 5,
+      "comment": "Review 1 for product id 2",
+      "productId": 2
+    },
+    {
+      "id": 5,
+      "rating": 3,
+      "comment": "Review 1 for product id 3",
+      "productId": 3
+    }
+  ]
+}

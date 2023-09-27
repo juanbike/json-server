@@ -1,0 +1,20 @@
+{
+	"pagoMovil": [
+		{
+			"id": 1,
+			"Monto": 12.500,
+			"cod_banco": "0151",
+			"claveC2p": "12345",
+			"cipagador": "4323456",
+			"movilpagador": "0424458785"
+		},
+		{
+			"id": 2,
+			"Monto": 19.500,
+			"cod_banco": "0174",
+			"claveC2p": "123456",
+			"cipagador": "5423456",
+			"movilpagador": "04145704512"
+		}
+	]
+}

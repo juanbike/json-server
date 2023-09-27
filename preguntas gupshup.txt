@@ -1,0 +1,43 @@
+Area de administración
+----------------------
+
+	1- Como es el proceso en el cual el administrador del bot agrega desarrolladores
+
+	2- Como es el proceso para crear un proyecto nuevo (en la organizacion) y enlazarlo con varios proyectos y cada proyecto enlazarlo con WABA
+	
+	ACCESO BASADO EN ROLES
+	
+		1-Acceso a la Administración de Proyectos: 
+		 Los usuarios administradores del proyecto tienen acceso a la Facturación y Administrar vista de proyecto lo que les permite agregar nuevos usuarios al proyecto, hacer cambios en la facturación
+		 detalles, entre otros acciones relacionadas con la proyecto.
+		
+		2- Miembros
+		  Usuarios de acceso de miembros no tiene acceso a la Facturación y Gestión Vistas del proyecto.
+	
+	    3- SERVICIOS
+			Miembro y Proyecto los usuarios con acceso de administrador poder ver tantos servicios como el proyecto El propietario selecciona.
+	
+
+
+Area Ejecutiva
+--------------
+	1- Como el desarrollador puede probar el bot y luego desplegarlo
+
+	2- Que significa despliegue del bot
+
+	3- Como puedo probar el bot localmente
+
+	4- Como se usan las variables locales, globales y de sistema
+
+	5- Los nodos tienen dos salidas: una para seguir la conversación y el otro (fallback) para una respuesta (negativa)
+
+	6- como se hace una referencia a una API en la respuesta y las propiedades de un objeto
+
+	7- Como usar el nodo condition y dame un ejemplo
+
+	8- Las explicaciones que dan en su página sobre los ejemplos de los nodos (videos) son poco explicativas y no tienen ejemplos claros 
+
+	9- Cuales son los formatos de los documentos, video, imagenes, documentos: (dimension(ancho y alto), tipo(jpg, png, ect), tamaño(2mb, 8mb, ect))
+
+
+
